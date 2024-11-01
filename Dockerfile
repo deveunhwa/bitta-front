@@ -4,8 +4,13 @@ FROM node:18 AS builder
 # 작업 디렉토리 생성 및 설정
 WORKDIR /app
 
-# 패키지 파일 복사 및 의존성 설치
+# 패키지 파일 복사
 COPY package*.json ./
+
+# 환경 변수 설정
+ENV NODE_ENV=development
+
+# 의존성 설치
 RUN npm install
 
 # 소스 파일 복사
@@ -25,4 +30,3 @@ EXPOSE 80
 
 # Nginx 시작
 CMD ["nginx", "-g", "daemon off;"]
-
