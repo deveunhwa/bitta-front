@@ -1,5 +1,5 @@
 # 빌드 환경 설정
-FROM node:18 AS builder
+FROM node:18
 
 # 작업 디렉토리 생성 및 설정
 WORKDIR /app
