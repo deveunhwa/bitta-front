@@ -18,10 +18,11 @@ RUN npm run build
 FROM nginx:alpine
 
 # 빌드된 정적 파일을 Nginx 경로로 복사
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Nginx 포트 공개
 EXPOSE 80
 
-# Step 10: Nginx 시작
+# Nginx 시작
 CMD ["nginx", "-g", "daemon off;"]
+
