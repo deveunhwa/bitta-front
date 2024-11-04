@@ -4,7 +4,6 @@ import Home from './pages/Home';
 import Calendar1 from "./pages/Calendar1.jsx";
 import Jobpost from "./pages/JobPost.jsx";
 
-
 function App() {
     return (
         <Router>
