@@ -1,0 +1,77 @@
+.feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f7f7f9;
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-image {
+    width: 120px; /* 프로필 이미지 크기 조정 */
+    height: 120px; /* 프로필 이미지 크기 조정 */
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.nickname {
+    font-size: 26px; /* 닉네임 크기 조정 */
+    font-weight: bold;
+}
+
+.bio {
+    font-size: 16px; /* 자기소개 크기 조정 */
+    color: gray;
+}
+
+.posts-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3열로 배치 */
+    gap: 30px; /* 게시글 간격 */
+    width: 50%; /* 전체 너비 */
+}
+
+.post {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.post-image {
+    width: 100%; /* 이미지가 카드에 맞게 조정 */
+    height: 150px; /* 게시글 이미지 높이 조정 */
+    object-fit: cover; /* 이미지 비율 유지 */
+    border-radius: 12px;
+}
+
+.post-title {
+    font-size: 18px; /* 게시글 제목 크기 조정 */
+    font-weight: bold;
+}
+
+.post-content {
+    font-size: 12px; /* 게시글 내용 크기 조정 */
+    color: #555;
+}
+
+.back-button {
+    position: absolute; /* 절대 위치 지정 */
+    top: 20px; /* 상단에서 20px 떨어지도록 */
+    left: 20px; /* 좌측에서 20px 떨어지도록 */
+    background-color: transparent; /* 배경색 투명 */
+    border: none; /* 테두리 없음 */
+    font-size: 24px; /* 글자 크기 */
+    cursor: pointer; /* 커서 포인터로 변경 */
+    color: #000; /* 글자 색상 */
+    z-index: 10; /* 다른 요소 위에 오도록 */
+}
+
+.back-button:hover {
+    color: #007bff; /* 호버 시 색상 변경 */
+}
