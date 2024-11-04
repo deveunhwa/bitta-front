@@ -1,0 +1,33 @@
+.apply-request-section {
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    margin: 10px;
+}
+
+.apply-request-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.apply-request-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.apply-request-section li {
+    margin: 10px 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.status-update {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.status-update select,
+.status-update button {
+    margin-right: 5px;
+}

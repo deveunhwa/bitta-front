@@ -1,0 +1,30 @@
+/* src/pages/requestManagement/requestManagement.css */
+
+.request-management-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.calendar-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.request-sections {
+    display: flex;
+    flex: 1;
+}
+
+.apply-section, .scout-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.apply-section {
+    border-right: 1px solid #ddd;
+}
