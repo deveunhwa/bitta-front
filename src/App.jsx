@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Calendar1 from "./pages/Calendar1.jsx";
-import Jobpost from "./pages/Jobpost";
+import Jobpost from "./pages/JobPost.jsx";
 
 
 function App() {
