@@ -1,14 +1,13 @@
-/* src/pages/requestManagement/requestManagement.css */
-
 .request-management-container {
     display: flex;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+    overflow-y: auto; /* 전체 페이지에 스크롤 추가 */
 }
 
 .calendar-section {
-    flex: 1;
+    flex: 1; /* 화면 비율에 맞춰 자동으로 크기 조정 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +16,7 @@
 
 .request-sections {
     display: flex;
-    flex: 1;
+    flex: 1; /* 화면 비율에 맞춰 자동으로 크기 조정 */
 }
 
 .apply-section, .scout-section {
