@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import './jobpost.css';
 import NavBar from "./NavBar";
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 function Jobpost() {
 
@@ -84,6 +85,11 @@ function Jobpost() {
                                 </div>
                                 <div className="btn_group">
                                     <button className="btnx type02">재검색</button>
+                                </div>
+                                <div className="btn_group">
+                                    <Link to="/add-job-post">
+                                        <button className="btnx type03">게시물 추가</button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
