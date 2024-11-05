@@ -8,8 +8,4 @@ export default defineConfig({
     port: 3000
   }
   
-<<<<<<< HEAD
 })
-=======
-})
->>>>>>> 82de2a0 (Refactor: vite.config.js)
