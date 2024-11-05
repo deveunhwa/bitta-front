@@ -32,7 +32,7 @@ jobs:
         run: npm run build  # Vite의 기본 빌드 명령어, 빌드 결과는 기본적으로 dist 폴더에 생성됨
 
   deploy:
-    if: github.repository == 'your-username/your-frontend-repo' && github.ref == 'refs/heads/release'
+    if: github.repository == 'deveunhwa/bitta-front' && github.ref == 'refs/heads/release'
     needs: build
     runs-on: ubuntu-latest
     permissions:
