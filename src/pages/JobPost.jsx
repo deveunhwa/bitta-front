@@ -69,11 +69,11 @@ function Jobpost() {
                     <div className="sidebar">
                         <div className="sinner scroll_p">
                             <div className="res_form">
-                                <h2 className="title">카테고리 설정</h2>
+                                <h2 className="title">구인구직 설정</h2>
                                 <div className="cont">
                                     <a className="ico-place" style={{ cursor: 'pointer' }}>
-                                        사진촬영
-                                        <button className="btn_edit">수정</button>
+                                        나의 구인 게시글
+                                        <button href="/JobPost-detail" className="btn_edit">펼쳐보기</button>
                                     </a>
                                 </div>
                                 <div className="cont">
