@@ -1,41 +1,43 @@
 .scout-request-section {
-    padding: 10px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
-.scout-request-section h2 {
-    font-size: 1.5rem;
+.section-header {
+    font-size: 1.2em;
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
-.scout-request-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.scout-request-section li {
-    padding: 8px;
-    margin-bottom: 8px;
-    background-color: #ffffff;
+.request-container, .respond-container {
+    flex: 1;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #f9f9f9;
 }
 
-.scout-request-section button {
-    margin-right: 5px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 3px;
+.request-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.feed-link, .chat-link, .delete-link {
+    color: #007bff;
+    text-decoration: underline;
     cursor: pointer;
+    margin-top: 5px;
+    display: block; /* Ensures they appear below each other */
 }
 
-.scout-request-section button:first-of-type {
-    background-color: #28a745;
-    color: #fff;
+.status-update {
+    margin-top: 10px;
 }
 
-.scout-request-section button:last-of-type {
-    background-color: #dc3545;
-    color: #fff;
-}
+.status-pending { color: orange; }
+.status-accepted { color: green; }
+.status-rejected { color: red; }

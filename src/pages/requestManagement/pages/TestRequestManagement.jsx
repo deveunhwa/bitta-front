@@ -8,17 +8,27 @@ import { useEffect, useState } from "react";
 
 function TestRequestManagement() {
     const [userData, setUserData] = useState(null);
+    const [calendarEvents, setCalendarEvents] = useState([]);
 
     useEffect(() => {
-        // 샘플 사용자 데이터를 로컬에 저장된 'userData'로부터 가져옴
         const storedUserData = localStorage.getItem('userData');
         if (storedUserData) {
             setUserData(JSON.parse(storedUserData));
         } else {
-            // 기본 샘플 사용자 데이터를 설정
             setUserData({ nickname: "테스트 사용자" });
         }
     }, []);
+
+    const addCalendarEvent = (request) => {
+        setCalendarEvents((prevEvents) => [
+            ...prevEvents,
+            {
+                title: request.jobName,
+                start: new Date(2024, 10, 15),
+                end: new Date(2024, 10, 20),
+            },
+        ]);
+    };
 
     return (
         <div className="request-management-container">
@@ -28,14 +38,16 @@ function TestRequestManagement() {
                 </div>
             )}
             <div className="calendar-section">
-                <Calendar1 /> {/* 샘플 캘린더 */}
+                <Calendar1 events={calendarEvents} />
             </div>
-            <div className="request-sections">
+            <div className="request-sections-vertical">
                 <div className="apply-section">
-                    <TestApplyRequestSection /> {/* 테스트용 ApplyRequestSection */}
+                    <h2 className="section-title">구인 요청</h2>
+                    <TestApplyRequestSection addCalendarEvent={addCalendarEvent} />
                 </div>
                 <div className="scout-section">
-                    <TestScoutRequestSection /> {/* 테스트용 ScoutRequestSection */}
+                    <h2 className="section-title">스카웃 요청</h2>
+                    <TestScoutRequestSection />
                 </div>
             </div>
         </div>
