@@ -7,8 +7,7 @@ import JobPostAddForm from "./pages/JobPostAdd/JobPostAdd.jsx";
 import Feed from './pages/Feed/Feed.jsx';
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx"
-
-// import Chat from "./pages/Chat.jsx";
+import Chating from "./pages/chating/Chating.jsx";
 // import Register from "./pages/Register.jsx";
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Signup" element={<Signup />} />
                 <Route path="/Feed" element={<Feed />} />
-                {/*<Route path="/Chat" element={<Chat />} />*/}
+                <Route path="/Chating" element={<Chating />} />
             </Routes>
         </Router>
     );

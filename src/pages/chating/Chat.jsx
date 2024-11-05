@@ -1,49 +1,50 @@
-import { useState, useEffect } from "react";
-import SockJS from "sockjs-client";
-import Stomp from "stompjs";
+import React, { useEffect, useState } from 'react';
 
-const Chat = () => {
+function Chat() {
     const [messages, setMessages] = useState([]);
-    const [message, setMessage] = useState("");
-    const [stompClient, setStompClient] = useState(null);
+    const [message, setMessage] = useState('');
+    const [socket, setSocket] = useState(null);
 
     useEffect(() => {
-        const socket = new SockJS("http://localhost:8080/ws");
-        const stompClient = Stomp.over(socket);
-        stompClient.connect({}, () => {
-            stompClient.subscribe("/topic/public", (msg) => {
-                const message = JSON.parse(msg.body);
-                setMessages((prevMessages) => [...prevMessages, message]);
-            });
-        });
-        setStompClient(stompClient);
+        // WebSocket 연결 설정
+        const ws = new WebSocket("ws://localhost:8080/ws");
 
-        return () => stompClient.disconnect();
+        ws.onopen = () => console.log("Connected to WebSocket");
+        ws.onmessage = (event) => {
+            const newMessage = JSON.parse(event.data);
+            setMessages(prevMessages => [...prevMessages, newMessage]);
+        };
+        ws.onclose = () => console.log("Disconnected from WebSocket");
+
+        setSocket(ws);
+
+        return () => ws.close();
     }, []);
 
     const sendMessage = () => {
-        if (stompClient && message.trim() !== "") {
-            const chatMessage = { sender: "User", content: message, type: "CHAT" };
-            stompClient.send("/app/chating.sendMessage", {}, JSON.stringify(chatMessage));
-            setMessage("");
+        if (socket && message.trim()) {
+            const chatMessage = { content: message, chatRoomId: 1 }; // chatRoomId는 테스트 용으로 1로 설정
+            socket.send(JSON.stringify(chatMessage));
+            setMessage('');
         }
     };
 
     return (
         <div>
-            <div>
+            <div className="chat-window">
                 {messages.map((msg, index) => (
-                    <div key={index}>{msg.sender}: {msg.content}</div>
+                    <div key={index}>{msg.content}</div>
                 ))}
             </div>
             <input
                 type="text"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                placeholder="Enter your message"
             />
             <button onClick={sendMessage}>Send</button>
         </div>
     );
-};
+}
 
 export default Chat;
