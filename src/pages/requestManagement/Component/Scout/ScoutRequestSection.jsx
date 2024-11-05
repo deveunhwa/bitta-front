@@ -1,12 +1,10 @@
-// src/Component/Scout/ScoutRequestSection.jsx
-
-import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './ScoutRequestSection.css';
+import {useEffect, useState} from "react";
 
 const ScoutRequestSection = () => {
     const [scoutRequests, setScoutRequests] = useState([]);
     const [loading, setLoading] = useState(true);
-    const memberId = 1; // 예시 ID, 추후 로그인 정보로 대체
 
     useEffect(() => {
         fetchScoutRequests();
@@ -15,9 +13,13 @@ const ScoutRequestSection = () => {
     const fetchScoutRequests = async () => {
         setLoading(true);
         try {
-            const response = await fetch(`/api/v1/scout/receiver/${memberId}`);
-            const data = await response.json();
-            setScoutRequests(data.receivedRequests);
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            if (!userData) return;
+
+            const response = await axios.get(`/api/v1/scout/receiver/${userData.profileId}`, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            });
+            setScoutRequests(response.data.receivedRequests);
         } catch (error) {
             console.error('Error fetching scout requests:', error);
         } finally {
@@ -27,12 +29,12 @@ const ScoutRequestSection = () => {
 
     const handleAccept = (id) => {
         console.log(`Scout request ${id} accepted`);
-        // 필요 시 API 요청 추가
+        // 추가 요청 로직 필요 시 구현
     };
 
     const handleReject = (id) => {
         console.log(`Scout request ${id} rejected`);
-        // 필요 시 API 요청 추가
+        // 추가 요청 로직 필요 시 구현
     };
 
     return (

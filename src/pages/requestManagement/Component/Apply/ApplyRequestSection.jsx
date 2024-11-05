@@ -1,14 +1,11 @@
-// src/Component/Apply/ApplyRequestSection.jsx
-
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ApplyRequestSection.css';
+import {useEffect, useState} from "react";
 
 const ApplyRequestSection = () => {
     const [applyRequests, setApplyRequests] = useState([]);
     const [selectedApplyId, setSelectedApplyId] = useState(null);
     const [status, setStatus] = useState('');
-    const profileId = 1; // 프로필 ID 예시, 추후 로그인 정보로 대체
 
     useEffect(() => {
         fetchApplyRequests();
@@ -16,7 +13,12 @@ const ApplyRequestSection = () => {
 
     const fetchApplyRequests = async () => {
         try {
-            const response = await axios.get(`/api/v1/apply?profileId=${profileId}`);
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            if (!userData) return;
+
+            const response = await axios.get(`/api/v1/apply?profileId=${userData.profileId}`, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            });
             setApplyRequests(response.data);
         } catch (error) {
             console.error('Error fetching apply requests:', error);
@@ -25,7 +27,12 @@ const ApplyRequestSection = () => {
 
     const handleStatusChange = async (applyId) => {
         try {
-            await axios.put(`/api/v1/apply/${applyId}/status/${profileId}`, { applyStatus: status });
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            if (!userData) return;
+
+            await axios.put(`/api/v1/apply/${applyId}/status/${userData.profileId}`, { applyStatus: status }, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            });
             fetchApplyRequests(); // 상태 업데이트 후 목록 다시 로드
             setSelectedApplyId(null);
             setStatus('');
