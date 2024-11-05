@@ -1,5 +1,5 @@
 /* jobPostAdd.css */
-.post-container {
+.jobPostAdd .post-container {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
@@ -8,31 +8,31 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.inner {
+.jobPostAdd .inner {
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 600px;
 }
 
-h2 {
+.jobPostAdd h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
     font: bold 30px 'KOTRA_SONGEULSSI';
 }
 
-form {
+.jobPostAdd form {
     width: 100%;
 }
 
-.form-group {
+.jobPostAdd .form-group {
     display: flex;
     align-items: flex-start; /* 레이블과 입력 필드 상단 맞춤 */
     margin-bottom: 15px;
 }
 
-label {
+.jobPostAdd label {
     flex-basis: 25%;
     font-weight: bold;
     color: #555;
@@ -42,7 +42,7 @@ label {
     margin-top: 8px; /* 레이블 수직 위치 조정 */
 }
 
-input, textarea, select {
+.jobPostAdd input, textarea, select {
     flex-basis: 67%;
     padding: 8px;
     font-size: 14px;
@@ -52,13 +52,13 @@ input, textarea, select {
     box-sizing: border-box;
 }
 
-textarea {
+.jobPostAdd textarea {
     height: 100px; /* 높이를 더 여유롭게 설정 */
     width: 30%;
     /*resize: both;*/
 }
 
-button {
+.jobPostAdd button {
     width: 92%;
     padding: 10px 15px;
     background-color: #b8c9e0;
@@ -69,7 +69,7 @@ button {
     font-size: 16px;
 }
 
-button:hover {
+.jobPostAdd button:hover {
     background-color: #0056b3;
 }
 
