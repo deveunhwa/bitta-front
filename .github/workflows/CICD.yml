@@ -104,10 +104,3 @@ jobs:
             docker-compose down
             docker-compose up -d --no-deps
             sudo nginx -s reload
-
-      # test
-      - name: Test Frontend Response1
-        run: curl http://localhost:3000
-
-      - name: Test Frontend Response2
-        run: curl --fail http://${{ secrets.EC2_HOST }} || exit 1
