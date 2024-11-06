@@ -9,6 +9,7 @@ import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import Test1 from "./pages/Test1.jsx";
 import Chating from "./pages/chating/Chating.jsx";
+// import ApplyRequestSection from "./pages/requestManagement/pages/RequestManagement.jsx"
 
 // import Register from "./pages/Register.jsx";
 
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/Feed" element={<Feed />} />
                 <Route path="/test1" element={<Test1 />} />
                 <Route path="/Chating" element={<Chating />} />
+                {/*<Route path="/Apply" element={<ApplyRequestSection />} />*/}
             </Routes>
         </Router>
     );

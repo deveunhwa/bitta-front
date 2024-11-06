@@ -39,8 +39,8 @@ function JobPostAddForm() {
     return (
         <div>
             <NavBar />
-            <div className="post-container">
-                <div className="inner">
+            <div className="postAddcontainer">
+                <div className="Addinner">
                     <h2>오디션 / 캐스팅 공고 등록</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">

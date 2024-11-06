@@ -12,6 +12,10 @@ function NavBar() {
         var enable = false
     }
 
+
+
+
+
     console.log(enable);
     const navigate = useNavigate();
 
@@ -124,13 +128,10 @@ function NavBar() {
                                 <a href="/JobPost" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0" aria-current="page">구인 게시글</a>
                             </li>
                             <li>
-                                <a href="/calendar1" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">나의 캘린더</a>
+                                <a href="/chating" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">채팅</a>
                             </li>
                             <li>
-                                <a href="/login" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">채팅</a>
-                            </li>
-                            <li>
-                                <a href="/chating" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">구인요청확인</a>
+                                <a href="/myinfo" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">내정보</a>
                             </li>
                         </ul>
                     </div>
