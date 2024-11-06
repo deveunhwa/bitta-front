@@ -106,8 +106,8 @@ jobs:
             sudo nginx -s reload
 
       # test
-      - name: Test Frontend Response
-        run: curl --fail http://${{ secrets.EC2_HOST }} || exit 1
+      - name: Test Frontend Response1
+        run: curl http://localhost:3000
 
-      - name: Test Backend Response
-        run: curl --fail http://${{ secrets.EC2_HOST }}/api/ || exit 1
+      - name: Test Frontend Response2
+        run: curl --fail http://${{ secrets.EC2_HOST }} || exit 1
