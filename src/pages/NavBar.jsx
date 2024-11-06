@@ -1,6 +1,42 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { getUsernameFromToken } from "./Test1.jsx"
+
+import signup from "./Signup.jsx";
 
 function NavBar() {
+
+
+    if(localStorage.getItem('access') == null){
+        var enable = true
+    } else {
+        var enable = false
+    }
+
+
+
+
+
+    console.log(enable);
+    const navigate = useNavigate();
+
+
+    function gofeed(){
+        navigate('/feed');
+    }
+
+    function gologin(){
+        navigate('/login');
+    }
+
+    function gosignup(){
+        navigate('/signup');
+    }
+
+    var username = getUsernameFromToken();
+
+
+
+
     return (
         <div>
             <nav className="fixed top-0 w-full bg-white border-gray-200 z-10">
@@ -10,20 +46,46 @@ function NavBar() {
                         <span className="self-center text-2xl font-semibold whitespace-nowrap">Bitta</span>
                     </a>
                     <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                        <Link to="/feed"> {/* Link로 감싸기 */}
-                            <button
-                                type="button"
-                                className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300"
-                                id="user-menu-button"
-                                aria-expanded="false"
-                                data-dropdown-toggle="user-dropdown"
-                                data-dropdown-placement="bottom"
-                            >
-                                <span className="sr-only">Open user menu</span>
-                                <img className="w-8 h-10 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo"/>
-                            </button>
-                        </Link>
-                        <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow" id="user-dropdown">
+                            {/*여기다가 히든*/}
+                            <div className={`${enable ? 'hidden' : ''} flex items-center space-x-3 rtl:space-x-reverse`}>
+                                {username}님 좋은 하루 되세요!__
+                                <button
+                                    type="button"
+                                    onClick={gofeed}
+                                    className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300"
+                                    id="user-menu-button"
+                                    aria-expanded="false"
+                                    data-dropdown-toggle="user-dropdown"
+                                    data-dropdown-placement="bottom"
+                                >
+                                    <span className="sr-only">Open user menu</span>
+                                    <img className="w-8 h-10 rounded-full" src="src/img/profile.jpg"
+                                         alt="user photo"/>
+                                </button>
+
+                            </div>
+                            {/*여기 부분을 히든으로 바꿔줘야함!*/}
+                            <div className={`${enable ? '' : 'hidden'}`}>
+                                <button
+                                    className="bg-green-300 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
+                                    onClick={gologin}
+                                >
+                                    로그인
+                                </button>
+                                {/* 회원가입 버튼 */}
+                                <button
+                                    className="bg-green-400 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition duration-200"
+                                    onClick={gosignup}
+                                >
+
+                                    회원가입
+                                </button>
+                            </div>
+
+
+                        <div
+                            className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
+                            id="user-dropdown">
                             <div className="px-6 py-3">
                                 <span className="block text-sm text-gray-900">Bonnie Green</span>
                                 <span className="block text-sm text-gray-500 truncate">name@flowbite.com</span>
@@ -63,19 +125,17 @@ function NavBar() {
                                 <a href="/" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">메인페이지</a>
                             </li>
                             <li>
-                                <a href="/JobPost" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0" aria-current="page">구인게시글</a>
+                                <a href="/JobPost" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0" aria-current="page">구인 게시글</a>
                             </li>
                             <li>
-                                <a href="/calendar1" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">캘린더</a>
+                                <a href="/chating" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">채팅</a>
                             </li>
                             <li>
-                                <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">구직게시</a>
-                            </li>
-                            <li>
-                                <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">채팅</a>
+                                <a href="/myinfo" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">내정보</a>
                             </li>
                         </ul>
                     </div>
+
                 </div>
             </nav>
             <div className="h-[100px]"/>

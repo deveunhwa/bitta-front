@@ -25,14 +25,14 @@ function Calendar1() {
             end: new Date(2024, 9, 20)
         },
         {
-            title: '촬영 진행일',
-            start: new Date(2024, 9, 13),
-            end: new Date(2024, 9, 20)
+            title: '대본 리딩',
+            start: new Date(2024, 10, 13),
+            end: new Date(2024, 10, 20)
         },
         {
-            title: '촬영 진행일',
-            start: new Date(2024, 9, 13),
-            end: new Date(2024, 9, 20)
+            title: '촬영 진행일!!',
+            start: new Date(2024, 10, 22),
+            end: new Date(2024, 10, 25)
         },
     ];
 
