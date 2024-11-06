@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // useNavigate를 추가합니다.
 import "./Feed.css";
 import samplePosts from "./samplePosts"; // Ensure this matches the file path
