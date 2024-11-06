@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {useState} from "react";
 import NavBar from "./NavBar.jsx";
-
+import { getUsernameFromToken } from "./Test1.jsx"
 
 function Login() {
 
@@ -37,6 +37,9 @@ function Login() {
                 // 오류 발생 시 처리 (예: 에러 메시지 표시)
             });
     }
+
+    const getname = getUsernameFromToken();
+    console.log(getname)
 
 
     return (
