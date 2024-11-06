@@ -1,0 +1,43 @@
+.scout-request-section {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.section-header {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.request-container, .respond-container {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.request-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.feed-link, .chat-link, .delete-link {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 5px;
+    display: block; /* Ensures they appear below each other */
+}
+
+.status-update {
+    margin-top: 10px;
+}
+
+.status-pending { color: orange; }
+.status-accepted { color: green; }
+.status-rejected { color: red; }
